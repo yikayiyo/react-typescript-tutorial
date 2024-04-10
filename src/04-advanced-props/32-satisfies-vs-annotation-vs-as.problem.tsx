@@ -1,9 +1,14 @@
 import { ComponentProps } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const buttonProps = {
+type ButtonProps = Omit<ComponentProps<"button">, 'type'> & {
+  type: 'button' 
+
+};
+
+const buttonProps: ButtonProps = {
   type: "button",
-  // @ts-expect-error
+  //@ts-expect-error
   illegalProperty: "I AM ILLEGAL",
 };
 

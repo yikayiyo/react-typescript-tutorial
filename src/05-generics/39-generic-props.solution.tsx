@@ -11,7 +11,7 @@ interface TableProps<T> {
  * use that type argument in the type of the `rows` prop and the
  * `renderRow` function.
  */
-export const Table = <T,>(props: TableProps<T>) => {
+export const Table = <K,>(props: TableProps<K>) => {
   return (
     <table>
       <tbody>

@@ -6,7 +6,7 @@ interface TableProps<T> {
   renderRow: (row: T) => ReactNode;
 }
 
-export const Table = <T,>(props: TableProps<T>) => {
+export const Table = <T extends User>(props: TableProps<T>) => {
   return (
     <table>
       <tbody>
@@ -41,7 +41,7 @@ interface User {
         age: 30,
       },
       {
-        // @ts-expect-error id should be string
+        // @ts-expect-error id should be number
         id: "2",
         name: "Jane",
         age: 30,

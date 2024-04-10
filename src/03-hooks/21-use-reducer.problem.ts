@@ -1,7 +1,19 @@
 import { useReducer } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const reducer = (state: unknown, action: unknown) => {
+type State = {
+  count: number
+}
+
+type Action = {
+  type: 'add' | 'ADD',
+  add: number
+} | {
+  type: 'subtract' | 'SUBTRACT',
+  subtract: number
+}
+
+const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case "add":
       return { count: state.count + action.add };
@@ -18,7 +30,6 @@ type tests = [Expect<Equal<typeof state.count, number>>];
 
 dispatch({ type: "add", add: 1 });
 
-// @ts-expect-error
 dispatch({ type: "SUBTRACT", subtract: 1 });
 
 // @ts-expect-error

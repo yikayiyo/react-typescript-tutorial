@@ -2,6 +2,7 @@ const classNamesMap = {
   primary: "bg-blue-500 text-white",
   secondary: "bg-gray-200 text-black",
   success: "bg-green-500 text-white",
+  error: 'bg-red-500 text-white'
 };
 
 /**

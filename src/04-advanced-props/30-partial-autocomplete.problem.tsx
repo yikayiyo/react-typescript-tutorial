@@ -44,7 +44,7 @@ export const Icon = (props: { size: LooseSize }) => {
   {/* pass any value. */}
   <Icon size="sm"></Icon>
   <Icon size="xs"></Icon>
-  <Icon size="10px"></Icon>
+  <Icon size='10px'></Icon>
 </>;
 
 // This is a tough one! If you get stuck, jump right to the solution.

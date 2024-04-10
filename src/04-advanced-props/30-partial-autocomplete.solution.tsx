@@ -12,7 +12,9 @@ type Size = keyof typeof presetSizes;
  * Honestly, I'm not sure why this works. Some compiler-diving is required
  * to figure it out.
  */
-type LooseSize = Size | (string & {});
+
+type Tmp = string & {}
+type LooseSize = Size | Tmp;
 
 export const Icon = (props: { size: LooseSize }) => {
   return (
@@ -30,5 +32,5 @@ export const Icon = (props: { size: LooseSize }) => {
 <>
   <Icon size="sm"></Icon>
   <Icon size="xs"></Icon>
-  <Icon size="10px"></Icon>
+  <Icon size='10px'></Icon>
 </>;
