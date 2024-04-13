@@ -1,8 +1,9 @@
 import { lazy, Suspense, useMemo } from "react";
 
-type Props = {
-  loader: unknown;
-};
+// 定义泛型组件Props，包含loader、id以及子组件的Props类型
+type LazyLoadProps<T extends React.ComponentType<any>> = {
+  loader: () => Promise<{ default: T }>;
+} & React.ComponentProps<T>;
 
 /**
  * 1. This component is supposed to take a loader function that returns a
@@ -16,7 +17,7 @@ type Props = {
  * - You'll need to make this a generic component!
  * - React.ComponentProps will come in handy, as will React.ComponentType
  */
-function LazyLoad({ loader, ...props }: Props) {
+function LazyLoad<T extends React.ComponentType<any>>({ loader, ...props }: LazyLoadProps<T>) {
   const LazyComponent = useMemo(() => lazy(loader), [loader]);
 
   return (

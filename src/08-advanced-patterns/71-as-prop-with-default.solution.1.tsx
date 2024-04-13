@@ -45,7 +45,7 @@ const Example2 = () => {
   return (
     <>
       <Link
-        as="button"
+        as='a'
         // @ts-expect-error doesNotExist is not a valid prop
         doesNotExist
       ></Link>

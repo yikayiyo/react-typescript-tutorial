@@ -1,7 +1,9 @@
 import { Router, useRouter } from "fake-external-lib";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const withRouter = <TProps,>(Component: React.ComponentType<TProps>) => {
+export const withRouter = <TProps,>(
+  Component: React.ComponentType<TProps>
+):  ((props: Omit<TProps, "router">) => React.ReactNode) => {
   const NewComponent = (props: Omit<TProps, "router">) => {
     const router = useRouter();
     return <Component {...(props as TProps)} router={router} />;

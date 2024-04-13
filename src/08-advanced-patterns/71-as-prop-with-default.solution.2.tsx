@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementType, useRef } from "react";
+import { ComponentPropsWithoutRef, ElementType } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
 export const Link = <T extends ElementType>(

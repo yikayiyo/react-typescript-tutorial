@@ -4,6 +4,9 @@ declare global {
       "something-solution": {
         id: string;
       };
+      // myNewElement: {
+      //   foo: string;
+      // }
     }
   }
 }

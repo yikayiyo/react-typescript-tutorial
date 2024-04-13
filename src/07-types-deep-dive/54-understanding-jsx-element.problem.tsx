@@ -4,10 +4,29 @@
  *
  * CMD-click each of them to understand the difference.
  */
-
 type ClickMe = React.ReactElement;
-type ClickMeToo = JSX.Element;
+/*
+interface ReactElement<P = any, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> {
+  type: T;
+  props: P;
+  key: Key | null;
+}
+*/ 
+type ClickMeToo = JSX.Element;  // interface Element extends React.ReactElement<any, any> { }
 type ClickMeThree = React.ReactNode;
+
+/*
+type ReactNode =
+  | ReactElement
+  | string
+  | number
+  | ReactFragment
+  | ReactPortal
+  | boolean
+  | null
+  | undefined
+  | DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES[keyof DO_NOT_USE_OR_YOU_WILL_BE_FIRED_EXPERIMENTAL_REACT_NODES];
+*/
 
 /**
  * 2. What is the return type of this Component?
@@ -26,7 +45,7 @@ const Component = () => {
  *
  * https://stackoverflow.com/questions/39668731/what-typescript-version-is-visual-studio-code-using-how-to-update-it
  */
-const Component2 = (): React.ReactNode => {
+const Component2 = () => {
   return <div></div>;
 };
 
@@ -37,7 +56,7 @@ const Component2 = (): React.ReactNode => {
 /**
  * 4a. Why does this component NOT error...
  */
-const Component3 = (): React.ReactElement => {
+const Component3 = () => {
   return <div></div>;
 };
 
@@ -48,6 +67,6 @@ const Component3 = (): React.ReactElement => {
 /**
  * 4b. ...but this one does?
  */
-const Component4 = (): React.ReactElement => {
+const Component4 = (): React.ReactNode => {
   return "hello!";
 };

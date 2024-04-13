@@ -6,6 +6,16 @@
  * a new attribute to all React elements.
  */
 
+type T = {
+  testId: string
+}
+declare global {
+  namespace React {
+    // interface HTMLAttributes<T> {
+    //   testId: string;
+    // }
+  }
+}
 <>
   <div testId="123" />
   <audio testId="123" />

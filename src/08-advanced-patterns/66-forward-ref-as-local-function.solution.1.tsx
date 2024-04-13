@@ -16,7 +16,7 @@ export const Table = <T,>(
   props: Props<T>,
   ref: ForwardedRef<HTMLTableElement>,
 ) => {
-  return <table ref={ref} />;
+  return <table ref={ref} {...props}/>;
 };
 
 const ForwardReffedTable = fixedForwardRef(Table);

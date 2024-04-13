@@ -23,8 +23,12 @@
  */
 
 import { Equal, Expect } from "../helpers/type-utils";
+type Props<T extends keyof React.JSX.IntrinsicElements> = 
+  React.ComponentProps<T> & {
+  as: T
+}
 
-export const Wrapper = (props: any) => {
+export const Wrapper = <T extends keyof React.JSX.IntrinsicElements>(props: Props<T>) => {
   const Comp = props.as;
   return <Comp {...(props as any)}></Comp>;
 };
